@@ -1915,16 +1915,20 @@
 				ORGANIZATIONNAME = "Sparkle Project";
 				TargetAttributes = {
 					1420DF491962329200203BB0 = {
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = WUGMZZ5K46;
+						ProvisioningStyle = Manual;
 					};
 					14732BC51960F69300593899 = {
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = WUGMZZ5K46;
+						ProvisioningStyle = Manual;
 					};
 					1495005F195FB89400BC5B5B = {
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = WUGMZZ5K46;
+						ProvisioningStyle = Manual;
 					};
 					55C14BB6136EEF1500649790 = {
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = WUGMZZ5K46;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
 								enabled = 1;
@@ -1933,40 +1937,49 @@
 					};
 					5A5ADED6214EDE4900DF0099 = {
 						CreatedOnToolsVersion = 10.0;
+						DevelopmentTeam = WUGMZZ5K46;
 						ProvisioningStyle = Automatic;
 					};
 					5AA96C541E0AE0DB00CA4346 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = WUGMZZ5K46;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					5AB8F19E214DA72000A1187F = {
+						DevelopmentTeam = WUGMZZ5K46;
 						ProvisioningStyle = Automatic;
 					};
 					5D06E8CF0FD68C7C005AE3F6 = {
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = WUGMZZ5K46;
+						ProvisioningStyle = Manual;
 					};
 					612279D80DB5470200AB99EA = {
+						DevelopmentTeam = WUGMZZ5K46;
 						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 8DC2EF4F0486A6940098B216;
 					};
 					61B5F90109C4CEE200B25A18 = {
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = WUGMZZ5K46;
+						ProvisioningStyle = Manual;
 					};
 					722954B31D04ADAF00ECF9CA = {
 						CreatedOnToolsVersion = 7.3.1;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = WUGMZZ5K46;
+						ProvisioningStyle = Manual;
 					};
 					726B2B5C1C645FC900388755 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = WUGMZZ5K46;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 61B5F90109C4CEE200B25A18;
 					};
 					8DC2EF4F0486A6940098B216 = {
+						DevelopmentTeam = WUGMZZ5K46;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
