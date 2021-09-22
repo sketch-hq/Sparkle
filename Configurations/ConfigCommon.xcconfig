@@ -92,6 +92,7 @@ WARNING_CFLAGS_WEAK_RECEIVER[sdk=macosx10.12] =
 
 WARNING_CFLAGS_SKETCH =
 WARNING_CFLAGS_SKETCH[sdk=macosx12.0] = -Wno-completion-handler
+WARNING_CFLAGS_SKETCH[sdk=macosx11.3] = -Wno-completion-handler
 
 // Turn on all warnings, then disable a few which are almost impossible to avoid
 WARNING_CFLAGS = -Wall -Weverything -Wno-unused-macros -Wno-gnu-statement-expression $(WARNING_CGLAGS_WEAK_RECEIVER) -Wno-arc-repeated-use-of-weak -Wno-auto-import -Wno-gnu-zero-variadic-macro-arguments $(WARNING_CFLAGS_EXTRA) $(WARNING_CFLAGS_SKETCH)
