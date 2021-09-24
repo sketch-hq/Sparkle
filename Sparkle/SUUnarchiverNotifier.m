@@ -25,6 +25,7 @@
 @synthesize completionBlock = _completionBlock;
 @synthesize progressBlock = _progressBlock;
 
+
 - (instancetype)initWithCompletionBlock:(void (^)(NSError * _Nullable))completionBlock progressBlock:(void (^ _Nullable)(double))progressBlock
 {
     self = [super init];

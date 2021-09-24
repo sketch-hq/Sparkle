@@ -70,6 +70,7 @@ static NSString *const SUUpdatePermissionPromptTouchBarIndentifier = @"" SPARKLE
     return self;
 }
 
+
 + (void)promptWithHost:(SUHost *)host systemProfile:(NSArray *)profile reply:(void (^)(SUUpdatePermissionResponse *))reply
 {
     // If this is a background application we need to focus it in order to bring the prompt

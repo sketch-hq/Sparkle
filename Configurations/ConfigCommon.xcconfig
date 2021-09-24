@@ -90,8 +90,20 @@ WARNING_CFLAGS_EXTRA = -Wno-custom-atomic-properties -Wno-implicit-atomic-proper
 WARNING_CFLAGS_WEAK_RECEIVER = -Wno-receiver-is-weak
 WARNING_CFLAGS_WEAK_RECEIVER[sdk=macosx10.12] =
 
+// The warning -Wno-completion-handler is only available in XC13.
+// If XC12 encounters it, it throws yet another warning.
+// The problem is we do actually want to turn this warning off for both here
+// and GCDWebServers so we need to find a way to only do this for XC13 builds.
+// Enter the buildsetting XCODE_VERSION_ACTUAL. The substitution below will
+// only occur when the value of that build setting is 1300.
+// This is indeed a suboptimal solution, because we will have to keep updating this
+// with each new XC13 release. But hopefully before too long we can drop XC12 altogether
+// and with it this little piece of trickery.
+XCODE_1300 = -Wno-completion-handler
+WARNING_CFLAGS_SKETCH = $(XCODE_$(XCODE_VERSION_ACTUAL))
+
 // Turn on all warnings, then disable a few which are almost impossible to avoid
-WARNING_CFLAGS = -Wall -Weverything -Wno-unused-macros -Wno-gnu-statement-expression $(WARNING_CGLAGS_WEAK_RECEIVER) -Wno-arc-repeated-use-of-weak -Wno-auto-import -Wno-gnu-zero-variadic-macro-arguments $(WARNING_CFLAGS_EXTRA)
+WARNING_CFLAGS = -Wall -Weverything -Wno-unused-macros -Wno-gnu-statement-expression $(WARNING_CGLAGS_WEAK_RECEIVER) -Wno-arc-repeated-use-of-weak -Wno-auto-import -Wno-gnu-zero-variadic-macro-arguments $(WARNING_CFLAGS_EXTRA) $(WARNING_CFLAGS_SKETCH)
 
 
 CODE_SIGN_ENTITLEMENTS = Autoupdate.entitlements
