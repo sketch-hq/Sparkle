@@ -101,6 +101,7 @@ WARNING_CFLAGS_WEAK_RECEIVER[sdk=macosx10.12] =
 // and with it this little piece of trickery.
 XCODE_1300 = -Wno-completion-handler
 XCODE_1310 = -Wno-completion-handler
+XCODE_1320 = -Wno-completion-handler
 WARNING_CFLAGS_SKETCH = $(XCODE_$(XCODE_VERSION_ACTUAL))
 
 // Turn on all warnings, then disable a few which are almost impossible to avoid
