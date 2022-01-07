@@ -112,7 +112,7 @@ CODE_SIGN_ENTITLEMENTS = Autoupdate.entitlements
 
 
 // SKETCH CUSTOMISATIONS
-ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = clr.accent.color
+ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = clr-accent-color
 
 // Here we include the local user's settings to override any of the ones specified above.
 #include "../../BCFoundation/Configs/BCCodeSigning.xcconfig"
