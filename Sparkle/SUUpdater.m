@@ -353,6 +353,10 @@ static NSString *const SUUpdaterDefaultsObservationContext = @"SUUpdaterDefaults
 
 - (void)checkForUpdatesWithDriver:(SUUpdateDriver *)d
 {
+    NSURL *theFeedURL = [self parameterizedFeedURL];
+    if (theFeedURL) // Use a NIL URL to cancel quietly.
+        [self.driver checkForUpdatesAtURL:theFeedURL host:self.host];
+    /*
     if ([self updateInProgress]) { return; }
     if (self.checkTimer) { [self.checkTimer invalidate]; self.checkTimer = nil; }		// Timer is non-repeating, may have invalidated itself, so we had to retain it.
 
@@ -380,6 +384,7 @@ static NSString *const SUUpdaterDefaultsObservationContext = @"SUUpdaterDefaults
         [self.driver checkForUpdatesAtURL:theFeedURL host:self.host];
     else
         [self.driver abortUpdate];
+    */
 }
 
 - (void)registerAsObserver
