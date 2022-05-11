@@ -58,7 +58,7 @@
 - (void)checkForUpdatesAtURL:(NSURL *)URL host:(SUHost *)aHost
 {
     [super checkForUpdatesAtURL:URL host:aHost];
-	if (YES /*[aHost isRunningOnReadOnlyVolume]*/)
+	if ([aHost isRunningOnReadOnlyVolume])
 	{
         [self abortUpdateWithError:[NSError errorWithDomain:SUSparkleErrorDomain code:SURunningFromDiskImageError userInfo:@{ NSLocalizedDescriptionKey: [NSString stringWithFormat:SULocalizedString(@"%@ can't be updated, because it was opened from a read-only or a temporary location. Use Finder to copy %@ to the Applications folder, relaunch it from there, and try again.", nil), [aHost name], [aHost name]] }]];
         return;
