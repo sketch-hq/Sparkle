@@ -63,8 +63,11 @@ void SULog(SULogLevel level, NSString *format, ...)
             }
 
             NSString *displayName = [[NSFileManager defaultManager] displayNameAtPath:mainBundle.bundlePath];
-            client = asl_open([displayName stringByAppendingString:@" [Sparkle " TO_STRING(SPARKLE_VERSION) "]"].UTF8String, SPARKLE_BUNDLE_IDENTIFIER, options);
-            queue = dispatch_queue_create(NULL, DISPATCH_QUEUE_SERIAL);
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+          client = asl_open([displayName stringByAppendingString:@" [Sparkle " TO_STRING(SPARKLE_VERSION) "]"].UTF8String, SPARKLE_BUNDLE_IDENTIFIER, options);
+#pragma GCC diagnostic pop
+          queue = dispatch_queue_create(NULL, DISPATCH_QUEUE_SERIAL);
         }
     });
 
@@ -102,6 +105,8 @@ void SULog(SULogLevel level, NSString *format, ...)
     // Otherwise use ASL
     // Make sure we do not async, because if we async, the log may not be delivered deterministically
     dispatch_sync(queue, ^{
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         aslmsg message = asl_new(ASL_TYPE_MSG);
         if (message == NULL) {
             return;
@@ -126,5 +131,6 @@ void SULog(SULogLevel level, NSString *format, ...)
         }
         
         asl_send(client, message);
+#pragma GCC diagnostic pop
     });
 }
