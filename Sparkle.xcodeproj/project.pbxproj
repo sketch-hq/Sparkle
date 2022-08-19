@@ -2123,6 +2123,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		14652F7B19A945D600959E44 /* Run Script: Set Git Version Info */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -2134,7 +2135,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$SRCROOT/Configurations/set-git-version-info.sh\"";
+			shellScript = "\"$SRCROOT/Configurations/set-git-version-info.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6131B1910DDCDE32005215F0 /* Run Script: Set Git Version Info */ = {
