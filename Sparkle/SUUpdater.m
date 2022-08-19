@@ -516,12 +516,15 @@ static NSString *const SUUpdaterDefaultsObservationContext = @"SUUpdaterDefaults
     return [self.host boolForKey:SUSendProfileInfoKey];
 }
 
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 static NSString *escapeURLComponent(NSString *str) {
     return [[[[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
              stringByReplacingOccurrencesOfString:@"=" withString:@"%3d"]
              stringByReplacingOccurrencesOfString:@"&" withString:@"%26"]
              stringByReplacingOccurrencesOfString:@"+" withString:@"%2b"];
 }
+#pragma clang diagnostic pop
 
 - (NSURL *)parameterizedFeedURL
 {
