@@ -70,14 +70,15 @@ static NSMutableDictionary *sharedUpdaters = nil;
 static NSString *const SUUpdaterDefaultsObservationContext = @"SUUpdaterDefaultsObservationContext";
 
 // Debug is not defined in released builds and pedantic mode can enable -Wundef
-#if defined(DEBUG) && DEBUG
-+ (void)load
-{
-    // Debug builds have different configurations for update check intervals
-    // We're using NSLog instead of SULog here because we don't want to start Sparkle's logger here
-    NSLog(@"WARNING: This is running a Debug build of Sparkle; don't use this in production!");
-}
-#endif
+// 45900: XC14 doesn't like this at all, so killing this to silence the warning.
+//#if defined(DEBUG) && DEBUG
+//+ (void)load
+//{
+//    // Debug builds have different configurations for update check intervals
+//    // We're using NSLog instead of SULog here because we don't want to start Sparkle's logger here
+//    NSLog(@"WARNING: This is running a Debug build of Sparkle; don't use this in production!");
+//}
+//#endif
 
 + (SUUpdater *)sharedUpdater
 {
@@ -515,12 +516,15 @@ static NSString *const SUUpdaterDefaultsObservationContext = @"SUUpdaterDefaults
     return [self.host boolForKey:SUSendProfileInfoKey];
 }
 
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 static NSString *escapeURLComponent(NSString *str) {
     return [[[[str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
              stringByReplacingOccurrencesOfString:@"=" withString:@"%3d"]
              stringByReplacingOccurrencesOfString:@"&" withString:@"%26"]
              stringByReplacingOccurrencesOfString:@"+" withString:@"%2b"];
 }
+#pragma clang diagnostic pop
 
 - (NSURL *)parameterizedFeedURL
 {

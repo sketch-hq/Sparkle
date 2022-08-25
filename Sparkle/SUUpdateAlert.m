@@ -24,6 +24,7 @@
 #import "SUTouchBarForwardDeclarations.h"
 #import "SUTouchBarButtonGroup.h"
 
+
 static NSString *const SUUpdateAlertTouchBarIndentifier = @"" SPARKLE_BUNDLE_IDENTIFIER ".SUUpdateAlert";
 
 // WebKit protocols are not explicitly declared until 10.11 SDK, so
@@ -36,6 +37,9 @@ static NSString *const SUUpdateAlertTouchBarIndentifier = @"" SPARKLE_BUNDLE_IDE
 @protocol WebUIDelegate <NSObject>
 @end
 #endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 @interface SUUpdateAlert () <WebFrameLoadDelegate, WebPolicyDelegate, WebUIDelegate, NSTouchBarDelegate>
 
@@ -401,3 +405,5 @@ static NSString *const SUUpdateAlertTouchBarIndentifier = @"" SPARKLE_BUNDLE_IDE
 }
 
 @end
+
+#pragma clang diagnostic pop

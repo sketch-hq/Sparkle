@@ -208,10 +208,12 @@ static const NSTimeInterval SUTerminationTimeDelay = 0.5;
         // The only remedy I've been able to find is waiting an arbitrary delay before exiting our application
         
         // Don't use -launchApplication: because we may not be launching an application. Eg: it could be a system prefpane
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         if (![[NSWorkspace sharedWorkspace] openFile:relaunchPath]) {
             SULog(SULogLevelError, @"Failed to launch %@", relaunchPath);
         }
-        
+#pragma GCC diagnostic pop
         [self.statusController close];
         
         // Don't even think about hiding the app icon from the dock if we've already shown it
