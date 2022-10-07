@@ -19,3 +19,6 @@ GCC_WARN_UNINITIALIZED_AUTOS = YES
 // Needed to get rid of the error "skipping copy phase strip, binary is code signed:"
 // STRIP_INSALLED_PRODUCT is set to yes.
 COPY_PHASE_STRIP = NO
+
+// Overridden for Build-For-Profile
+ONLY_ACTIVE_ARCH[config=Profile] = YES
