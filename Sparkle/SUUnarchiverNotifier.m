@@ -29,10 +29,13 @@
 - (instancetype)initWithCompletionBlock:(void (^)(NSError * _Nullable))completionBlock progressBlock:(void (^ _Nullable)(double))progressBlock
 {
     self = [super init];
-    if (self != nil) {
-        _completionBlock = [completionBlock copy];
-        _progressBlock = [progressBlock copy];
-    }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wcompletion-handler"
+  if (self != nil) {
+      _completionBlock = [completionBlock copy];
+      _progressBlock = [progressBlock copy];
+  }
+#pragma clang diagnostic pop
     return self;
 }
 

@@ -58,8 +58,10 @@ static NSString *const SUUpdatePermissionPromptTouchBarIndentifier = @"" SPARKLE
 - (instancetype)initWithHost:(SUHost *)aHost systemProfile:(NSArray *)profile reply:(void (^)(SUUpdatePermissionResponse *))reply
 {
     self = [super initWithWindowNibName:@"SUUpdatePermissionPrompt"];
-	if (self)
-	{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wcompletion-handler"
+  if (self)
+  {
         _reply = reply;
         host = aHost;
         self.isShowingMoreInfo = NO;
@@ -67,6 +69,7 @@ static NSString *const SUUpdatePermissionPromptTouchBarIndentifier = @"" SPARKLE
         systemProfileInformationArray = profile;
         [self setShouldCascadeWindows:NO];
     }
+#pragma clang diagnostic pop
     return self;
 }
 
@@ -80,13 +83,16 @@ static NSString *const SUUpdatePermissionPromptTouchBarIndentifier = @"" SPARKLE
         [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
     }
 
-    if (![NSApp modalWindow]) { // do not prompt if there is is another modal window on screen
-        SUUpdatePermissionPrompt *prompt = [(SUUpdatePermissionPrompt *)[[self class] alloc] initWithHost:host systemProfile:profile reply:reply];
-        NSWindow *window = [prompt window];
-        if (window) {
-            [NSApp runModalForWindow:window];
-        }
-    }
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wcompletion-handler"
+  if (![NSApp modalWindow]) { // do not prompt if there is is another modal window on screen
+      SUUpdatePermissionPrompt *prompt = [(SUUpdatePermissionPrompt *)[[self class] alloc] initWithHost:host systemProfile:profile reply:reply];
+      NSWindow *window = [prompt window];
+      if (window) {
+          [NSApp runModalForWindow:window];
+      }
+  }
+#pragma clang diagnostic pop
 }
 
 - (NSString *)description { return [NSString stringWithFormat:@"%@ <%@>", [self class], [self.host bundlePath]]; }
