@@ -54,6 +54,7 @@
 }
 
 // Called on a non-main thread.
+#ifndef __clang_analyzer__
 - (void)extractDMGWithNotifier:(SUUnarchiverNotifier *)notifier
 {
 	@autoreleasepool {
@@ -200,6 +201,7 @@
         }
     }
 }
+#endif
 
 - (NSString *)description { return [NSString stringWithFormat:@"%@ <%@>", [self class], self.archivePath]; }
 
