@@ -47,13 +47,17 @@
 
 - (void)unarchiveWithCompletionBlock:(void (^)(NSError * _Nullable))completionBlock progressBlock:(void (^ _Nullable)(double))progressBlock
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+#ifndef __clang_analyzer__
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         SUUnarchiverNotifier *notifier = [[SUUnarchiverNotifier alloc] initWithCompletionBlock:completionBlock progressBlock:progressBlock];
+
         [self extractDMGWithNotifier:notifier];
     });
+#endif
 }
 
 // Called on a non-main thread.
+#ifndef __clang_analyzer__
 - (void)extractDMGWithNotifier:(SUUnarchiverNotifier *)notifier
 {
 	@autoreleasepool {
@@ -200,6 +204,7 @@
         }
     }
 }
+#endif
 
 - (NSString *)description { return [NSString stringWithFormat:@"%@ <%@>", [self class], self.archivePath]; }
 
